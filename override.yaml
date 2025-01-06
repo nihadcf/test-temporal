@@ -1,0 +1,73 @@
+prometheus:
+  enabled: false
+grafana:
+  enabled: false
+elasticsearch:
+  enabled: false
+server:
+  # frontend:
+  #   resources:
+  #     requests:
+  #       cpu: 100m
+  #       memory: 512Mi
+
+  # history:
+  #   resources:
+  #     requests:
+  #       cpu: 100m
+  #       memory: 512Mi
+
+  # matching:
+  #   resources:
+  #     requests:
+  #       cpu: 100m
+  #       memory: 512Mi
+
+  # worker:
+  #   resources:
+  #     requests:
+  #       cpu: 100m
+  #       memory: 512Mi
+  config:
+    persistence:
+      default:
+        driver: "sql"
+
+        sql:
+          driver: "postgres"
+          port: 5432
+          host: dev-fishgram.cqcrji0gv0dw.ap-south-1.rds.amazonaws.com
+          user: captainbid
+          password: Captainfreshadmin
+          database: temporal_dev
+          maxConns: 10
+          maxConnLifetime: "1h"
+
+      visibility:
+        driver: "sql"
+
+        sql:
+          driver: "postgres"
+          port: 5432
+          host: dev-fishgram.cqcrji0gv0dw.ap-south-1.rds.amazonaws.com
+          user: captainbid
+          password: Captainfreshadmin
+          database: temporal_dev_visibility
+          maxConns: 10
+          maxConnLifetime: "1h"
+
+cassandra:
+  enabled: false
+
+mysql:
+  enabled: false
+
+postgresql:
+  enabled: true
+
+schema:
+  setup:
+    enabled: false
+  update:
+    enabled: false
+
